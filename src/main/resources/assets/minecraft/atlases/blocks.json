@@ -42,6 +42,7 @@
     {"type": "single", "resource": "tfmg:fluid/propane"},
     {"type": "single", "resource": "tfmg:fluid/lpg"},
     {"type": "single", "resource": "tfmg:fluid/neon"},
-    {"type": "single", "resource": "tfmg:fluid/gas_texture"}
+    {"type": "single", "resource": "tfmg:fluid/gas_texture"},
+    {"type": "single", "resource": "tfmg:fluid/aqueous_texture"}
   ]
 }
