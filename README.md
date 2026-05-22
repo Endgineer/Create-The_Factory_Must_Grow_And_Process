@@ -1,3 +1,9 @@
+> [!WARNING]
+> This fork was created for personal use. It contains:
+> * A reimagining of sulfur world generation and sulfuric acid
+> * Addition of salammoniac and its use to synthesize nitric acid
+> * Dependency on the Salt mod for use in synthesizing hydrochloric acid
+
 <div align="center">
   <img src="https://cdn.modrinth.com/data/USgVjXsk/a8150331e2257d66e03e09478f17e121fcd3fdea_96.webp">
   <h1>Create: The Factory Must Grow</h1>
