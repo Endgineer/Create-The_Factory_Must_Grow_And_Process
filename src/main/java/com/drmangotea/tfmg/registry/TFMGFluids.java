@@ -60,10 +60,25 @@ public class TFMGFluids {
             LUBRICATION_OIL = fluid("lubrication_oil", 0x9D945F, TFMGTags.TFMGFluidTags.LUBRICATION_OIL.tag, TFMGTags.TFMGFluidTags.FLAMMABLE.tag),
             COOLING_FLUID = fluid("cooling_fluid", 0x7BC1C1, TFMGTags.TFMGFluidTags.COOLING_FLUID.tag),
             NAPALM = fluid("napalm", 0xC0CA97),
-            SULFURIC_ACID = acidFluid("sulfuric_acid", 0xE9E7CC),
             LIQUID_CONCRETE = concreteFluid("liquid_concrete", 0x5B5B59, ConcreteFluid.Source::new),
             LIQUID_ASPHALT = concreteFluid("liquid_asphalt", 0x010101, AsphaltFluid.Source::new);
-
+    
+    public static final FluidEntry<VirtualFluid> OXYGEN = gas("oxygen", 0xFFA7E8F5);
+    public static final FluidEntry<VirtualFluid> CHLORINE = gas("chlorine", 0xFFE4F08A);
+    
+    public static final FluidEntry<VirtualFluid> SULFUR_DIOXIDE = gas("sulfur_dioxide", 0xFFC8C0B6);
+    public static final FluidEntry<VirtualFluid> SULFUR_TRIOXIDE = gas("sulfur_trioxide", 0xFFF1B4B4);
+    public static final FluidEntry<VirtualFluid> HYDROGEN_CHLORIDE = gas("hydrogen_chloride", 0xFFA8F1E9);
+    public static final FluidEntry<VirtualFluid> NITROGEN_OXIDE = gas("nitrogen_oxide", 0xFFBFCFD6);
+    public static final FluidEntry<VirtualFluid> NITROGEN_DIOXIDE = gas("nitrogen_dioxide", 0xFFE3A87A);
+    public static final FluidEntry<VirtualFluid> AMMONIA = gas("ammonia", 0xFFE0F7FF);
+    
+    public static final FluidEntry<VirtualFluid> BRINE = aqueous("brine", 0xFF799FEC);
+    
+    public static final FluidEntry<VirtualFluid> SODIUM_HYDROXIDE = aqueous("sodium_hydroxide", 0xFF3F9FE4);
+    public static final FluidEntry<VirtualFluid> SULFURIC_ACID = aqueous("sulfuric_acid", 0xFFE4E43F);
+    public static final FluidEntry<VirtualFluid> HYDROCHLORIC_ACID = aqueous("hydrochloric_acid", 0xFF3FE4E4);
+    public static final FluidEntry<VirtualFluid> NITRIC_ACID = aqueous("nitric_acid", 0xFFE4AD3F);
 
     @SafeVarargs
     private static FluidEntry<ForgeFlowingFluid.Flowing> fluid(String name, int fogColor, TagKey<Fluid>... tags) {
@@ -189,12 +204,32 @@ public class TFMGFluids {
                 .register();
     }
 
+    @SafeVarargs
+    private static FluidEntry<VirtualFluid> aqueous(String name, int color, TagKey<Fluid>... tags) {
+        return REGISTRATE.aqueousFluid(name, color)
+                .lang(TFMGUtils.fromId(name))
+                .tag(tags)
+                .bucket()
+                .lang(TFMGUtils.fromId(name) + " Tank")
+                .tag(ItemTags.create(ResourceLocation.fromNamespaceAndPath("forge", "buckets/" + name)))
+                .build()
+                .register();
+    }
+
     public static ResourceLocation getGasLocation(String name) {
         return TFMG.asResource("fluid/" + name);
     }
 
     public static ResourceLocation getGasTexture() {
         return TFMG.asResource("fluid/gas_texture");
+    }
+
+    public static ResourceLocation getAqueousLocation(String name) {
+        return TFMG.asResource("fluid/" + name);
+    }
+
+    public static ResourceLocation getAqueousTexture() {
+        return TFMG.asResource("fluid/aqueous_texture");
     }
 
     public static ResourceLocation getLocation(String name) {

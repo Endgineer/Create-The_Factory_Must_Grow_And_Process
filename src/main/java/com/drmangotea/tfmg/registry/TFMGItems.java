@@ -13,6 +13,7 @@ import com.drmangotea.tfmg.content.electricity.utilities.transformer.Electromagn
 import com.drmangotea.tfmg.content.engines.CylinderItem;
 import com.drmangotea.tfmg.content.engines.FluidContainingItem;
 import com.drmangotea.tfmg.content.engines.upgrades.TransmissionItem;
+import com.drmangotea.tfmg.content.item.SalammoniacCrystalItem;
 import com.drmangotea.tfmg.content.items.CoalCokeItem;
 import com.drmangotea.tfmg.content.items.ScrewdriverItem;
 import com.drmangotea.tfmg.content.items.weapons.LeadAxeItem;
@@ -106,6 +107,7 @@ public class TFMGItems {
             CRUSHED_LITHIUM = taggedIngredient("crushed_raw_lithium", AllItemTags.CRUSHED_RAW_MATERIALS.tag)
     ;
 
+    public static final ItemEntry<SalammoniacCrystalItem> SALAMMONIAC_CRYSTAL = REGISTRATE.item("salammoniac_crystal", SalammoniacCrystalItem::new).register();
 
     public static final ItemEntry<Item>
             REBAR = REGISTRATE.item("rebar", Item::new)

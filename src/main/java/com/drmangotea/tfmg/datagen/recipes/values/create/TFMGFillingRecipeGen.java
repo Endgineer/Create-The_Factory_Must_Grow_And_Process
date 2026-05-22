@@ -30,6 +30,37 @@ import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.neonTank;
 import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.propylene;
 import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.propyleneTank;
 
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.oxygenTank;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.chlorineTank;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.sulfurDioxideTank;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.sulfurTrioxideTank;
+
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.hydrogenChlorideTank;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.nitrogenOxideTank;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.nitrogenDioxideTank;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.ammoniaTank;
+
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.brineTank;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.sodiumHydroxideTank;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.sulfuricAcidTank;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.hydrochloricAcidTank;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.nitricAcidTank;
+
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.oxygen;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.chlorine;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.sulfurDioxide;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.sulfurTrioxide;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.hydrogenChloride;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.nitrogenOxide;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.nitrogenDioxide;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.ammonia;
+
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.brine;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.sodiumHydroxide;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.sulfuricAcid;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.hydrochloricAcid;
+import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.nitricAcid;
+
 
 public class TFMGFillingRecipeGen extends TFMGProcessingRecipeGen {
 
@@ -106,7 +137,21 @@ public class TFMGFillingRecipeGen extends TFMGProcessingRecipeGen {
                     .require(TFMGItems.FIRE_EXTINGUISHER)
                     .require(carbonDioxide(), 1000)
                     .output(createFilledExtinguisherStack())
-            );
+            ),
+
+            OXYGEN_TANK = create("oxygen_tank", b -> b.require(Items.BUCKET).require(oxygen(), 1000).output(oxygenTank())),
+            CHLORINE_TANK = create("chlorine_tank", b -> b.require(Items.BUCKET).require(chlorine(), 1000).output(chlorineTank())),
+            SULFUR_DIOXIDE_TANK = create("sulfur_dioxide_tank", b -> b.require(Items.BUCKET).require(sulfurDioxide(), 1000).output(sulfurDioxideTank())),
+            SULFUR_TRIOXIDE_TANK = create("sulfur_trioxide_tank", b -> b.require(Items.BUCKET).require(sulfurTrioxide(), 1000).output(sulfurTrioxideTank())),
+            HYDROGEN_CHLORIDE_TANK = create("hydrogen_chloride_tank", b -> b.require(Items.BUCKET).require(hydrogenChloride(), 1000).output(hydrogenChlorideTank())),
+            NITROGEN_OXIDE_TANK = create("nitrogen_oxide_tank", b -> b.require(Items.BUCKET).require(nitrogenOxide(), 1000).output(nitrogenOxideTank())),
+            NITROGEN_DIOXIDE_TANK = create("nitrogen_dioxide_tank", b -> b.require(Items.BUCKET).require(nitrogenDioxide(), 1000).output(nitrogenDioxideTank())),
+            AMMONIA_TANK = create("ammonia_tank", b -> b.require(Items.BUCKET).require(ammonia(), 1000).output(ammoniaTank())),
+            BRINE_TANK = create("brine_tank", b -> b.require(Items.BUCKET).require(brine(), 1000).output(brineTank())),
+            SODIUM_HYDROXIDE_TANK = create("sodium_hydroxide_tank", b -> b.require(Items.BUCKET).require(sodiumHydroxide(), 1000).output(sodiumHydroxideTank())),
+            SULFURIC_ACID_TANK = create("sulfuric_acid_tank", b -> b.require(Items.BUCKET).require(sulfuricAcid(), 1000).output(sulfuricAcidTank())),
+            HYDROCHLORIC_ACID_TANK = create("hydrochloric_acid_tank", b -> b.require(Items.BUCKET).require(hydrochloricAcid(), 1000).output(hydrochloricAcidTank())),
+            NITRIC_ACID_TANK = create("nitric_acid_tank", b -> b.require(Items.BUCKET).require(nitricAcid(), 1000).output(nitricAcidTank()));
 
     // Helper method to create the filled extinguisher ItemStack
     private static ItemStack createFilledExtinguisherStack() {

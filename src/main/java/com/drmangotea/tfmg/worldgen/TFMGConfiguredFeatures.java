@@ -9,10 +9,17 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.GeodeBlockSettings;
+import net.minecraft.world.level.levelgen.GeodeCrackSettings;
+import net.minecraft.world.level.levelgen.GeodeLayerSettings;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.GeodeConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 
@@ -28,7 +35,8 @@ public class TFMGConfiguredFeatures {
             NICKEL_ORE = key("nickel_ore"),
             LITHIUM_ORE = key("lithium_ore"),
             TFMG_STRIATED_ORES_OVERWORLD = key("tfmg_striated_ores_overworld"),
-            TFMG_STRIATED_ORES_NETHER = key("tfmg_striated_ores_nether");
+            TFMG_STRIATED_ORES_NETHER = key("tfmg_striated_ores_nether"),
+            SALAMMONIAC_GEODE = key("salammoniac_geode");
 
     private static ResourceKey<ConfiguredFeature<?, ?>> key(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, TFMG.asResource(name));
@@ -83,5 +91,33 @@ public class TFMGConfiguredFeatures {
         );
 
         register(ctx, TFMG_STRIATED_ORES_NETHER, AllFeatures.LAYERED_ORE.get(), new LayeredOreConfiguration(netherLayerPatterns, 32, 0));
+
+        register(ctx, SALAMMONIAC_GEODE, TFMGFeatures.GEODE.get(),
+            new GeodeConfiguration(
+                new GeodeBlockSettings(
+                    BlockStateProvider.simple(Blocks.AIR),
+                    BlockStateProvider.simple(TFMGBlocks.SALAMMONIAC_BLOCK.get()),
+                    BlockStateProvider.simple(TFMGBlocks.BUDDING_SALAMMONIAC.get()),
+                    BlockStateProvider.simple(TFMGBlocks.SULFUR.get()),
+                    BlockStateProvider.simple(Blocks.SMOOTH_BASALT),
+                    List.of(
+                        TFMGBlocks.SMALL_SALAMMONIAC_BUD.getDefaultState(),
+                        TFMGBlocks.MEDIUM_SALAMMONIAC_BUD.getDefaultState(),
+                        TFMGBlocks.LARGE_SALAMMONIAC_BUD.getDefaultState(),
+                        TFMGBlocks.SALAMMONIAC_CLUSTER.getDefaultState()
+                    ),
+                    BlockTags.FEATURES_CANNOT_REPLACE,
+                    BlockTags.GEODE_INVALID_BLOCKS
+                ),
+                new GeodeLayerSettings(1.7D, 2.2D, 3.2D, 4.2D),
+                new GeodeCrackSettings(0.95D, 2.0D, 2),
+                0.35D, 0.083D,
+                true,
+                UniformInt.of(4, 6),
+                UniformInt.of(3, 4),
+                UniformInt.of(1, 2),
+                -16, 16, 0.05D, 1
+            )
+        );
     }
 }

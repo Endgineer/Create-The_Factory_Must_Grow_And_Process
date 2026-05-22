@@ -20,6 +20,8 @@ import com.simibubi.create.content.decoration.palettes.AllPaletteStoneTypes;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipe;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeSerializer;
 import com.simibubi.create.foundation.data.recipe.CommonMetal;
+
+import io.github.mortuusars.salt.Salt;
 import net.createmod.catnip.platform.CatnipServices;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -246,6 +248,12 @@ public class TFMGRecipeProvider extends RecipeProvider {
         }
         public static ItemLike sulfurDust() {
             return TFMGItems.SULFUR_DUST.get();
+        }
+        public static ItemLike saltDust() {
+            return Salt.Items.SALT.get();
+        }
+        public static ItemLike salammoniacCrystal() {
+            return TFMGItems.SALAMMONIAC_CRYSTAL.get();
         }
         public static ItemLike bucket() {
             return Items.BUCKET;
@@ -642,6 +650,12 @@ public class TFMGRecipeProvider extends RecipeProvider {
         public static Fluid hydrogen() {
             return TFMGFluids.HYDROGEN.get();
         }
+        public static Fluid oxygen() {
+            return TFMGFluids.OXYGEN.get();
+        }
+        public static Fluid chlorine() {
+            return TFMGFluids.CHLORINE.get();
+        }
         public static Fluid butane() {
             return TFMGFluids.BUTANE.get();
         }
@@ -686,13 +700,43 @@ public class TFMGRecipeProvider extends RecipeProvider {
         public static Fluid water() {
             return Fluids.WATER;
         }
+        public static Fluid brine() {
+            return TFMGFluids.BRINE.get();
+        }
 
         //MISC
+        public static Fluid sulfurDioxide() {
+            return TFMGFluids.SULFUR_DIOXIDE.get();
+        }
+        public static Fluid sulfurTrioxide() {
+            return TFMGFluids.SULFUR_TRIOXIDE.get();
+        }
+        public static Fluid hydrogenChloride() {
+            return TFMGFluids.HYDROGEN_CHLORIDE.get();
+        }
+        public static Fluid nitrogenOxide() {
+            return TFMGFluids.NITROGEN_OXIDE.get();
+        }
+        public static Fluid nitrogenDioxide() {
+            return TFMGFluids.NITROGEN_DIOXIDE.get();
+        }
+        public static Fluid ammonia() {
+            return TFMGFluids.AMMONIA.get();
+        }
         public static Fluid coolingFluid() {
             return TFMGFluids.COOLING_FLUID.get();
         }
+        public static Fluid sodiumHydroxide() {
+            return TFMGFluids.SODIUM_HYDROXIDE.get();
+        }
         public static Fluid sulfuricAcid() {
             return TFMGFluids.SULFURIC_ACID.get();
+        }
+        public static Fluid hydrochloricAcid() {
+            return TFMGFluids.HYDROCHLORIC_ACID.get();
+        }
+        public static Fluid nitricAcid() {
+            return TFMGFluids.NITRIC_ACID.get();
         }
         public static Fluid liquidConcrete() {
             return TFMGFluids.LIQUID_CONCRETE.get();
@@ -735,6 +779,12 @@ public class TFMGRecipeProvider extends RecipeProvider {
         public static ItemLike hydrogenTank() {
             return TFMGRegistrate.getBucket("hydrogen");
         }
+        public static ItemLike oxygenTank() {
+            return TFMGRegistrate.getBucket("oxygen");
+        }
+        public static ItemLike chlorineTank() {
+            return TFMGRegistrate.getBucket("chlorine");
+        }
         public static ItemLike butaneTank() {
             return TFMGRegistrate.getBucket("butane");
         }
@@ -774,11 +824,38 @@ public class TFMGRecipeProvider extends RecipeProvider {
         public static ItemLike creosoteBucket() {
             return TFMGRegistrate.getBucket("creosote");
         }
+        public static ItemLike sulfurDioxideTank() {
+            return TFMGRegistrate.getBucket("sulfur_dioxide");
+        }
+        public static ItemLike sulfurTrioxideTank() {
+            return TFMGRegistrate.getBucket("sulfur_trioxide");
+        }
+        public static ItemLike hydrogenChlorideTank() {
+            return TFMGRegistrate.getBucket("hydrogen_chloride");
+        }
+        public static ItemLike nitrogenOxideTank() {
+            return TFMGRegistrate.getBucket("nitrogen_oxide");
+        }
+        public static ItemLike nitrogenDioxideTank() {
+            return TFMGRegistrate.getBucket("nitrogen_dioxide");
+        }
+        public static ItemLike ammoniaTank() {
+            return TFMGRegistrate.getBucket("ammonia");
+        }
         public static ItemLike coolingFluidBucket() {
             return TFMGRegistrate.getBucket("cooling_fluid");
         }
-        public static ItemLike sulfuricAcidBucket() {
+        public static ItemLike sodiumHydroxideTank() {
+            return TFMGRegistrate.getBucket("sodium_hydroxide");
+        }
+        public static ItemLike sulfuricAcidTank() {
             return TFMGRegistrate.getBucket("sulfuric_acid");
+        }
+        public static ItemLike hydrochloricAcidTank() {
+            return TFMGRegistrate.getBucket("hydrochloric_acid");
+        }
+        public static ItemLike nitricAcidTank() {
+            return TFMGRegistrate.getBucket("nitric_acid");
         }
         public static ItemLike liquidConcreteBucket() {
             return TFMGRegistrate.getBucket("liquid_concrete");
@@ -797,6 +874,9 @@ public class TFMGRecipeProvider extends RecipeProvider {
         }
         public static ItemLike waterBucket() {
             return Fluids.WATER.getBucket();
+        }
+        public static ItemLike brineTank() {
+            return TFMGRegistrate.getBucket("brine");
         }
     }
     //////////////////////////////////////////

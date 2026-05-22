@@ -28,7 +28,8 @@ public class TFMGPlacedFeatures {
             NICKEL_ORE = key("nickel_ore"),
             LITHIUM_ORE = key("lithium_ore"),
             TFMG_STRIATED_ORES_OVERWORLD = key("tfmg_striated_ores_overworld"),
-            TFMG_STRIATED_ORES_NETHER = key("tfmg_striated_ores_nether");
+            TFMG_STRIATED_ORES_NETHER = key("tfmg_striated_ores_nether"),
+            SALAMMONIAC_GEODE = key("salammoniac_geode");
 
     private static ResourceKey<PlacedFeature> key(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, TFMG.asResource(name));
@@ -45,6 +46,7 @@ public class TFMGPlacedFeatures {
         Holder<ConfiguredFeature<?, ?>> lithiumOre = featureLookup.getOrThrow(TFMGConfiguredFeatures.LITHIUM_ORE);
         Holder<ConfiguredFeature<?, ?>> striatedOresOverworld = featureLookup.getOrThrow(TFMGConfiguredFeatures.TFMG_STRIATED_ORES_OVERWORLD);
         Holder<ConfiguredFeature<?, ?>> striatedOresNether = featureLookup.getOrThrow(TFMGConfiguredFeatures.TFMG_STRIATED_ORES_NETHER);
+        Holder<ConfiguredFeature<?, ?>> salammoniacGeode = featureLookup.getOrThrow(TFMGConfiguredFeatures.SALAMMONIAC_GEODE);
 
         register(ctx, OIL_DEPOSIT,oilDeposit,oilPlacement(RarityFilter.onAverageOnceEvery(4)));
 
@@ -55,6 +57,12 @@ public class TFMGPlacedFeatures {
         register(ctx, LITHIUM_ORE, lithiumOre, placement(CountPlacement.of(3), -63, -5));
         register(ctx, TFMG_STRIATED_ORES_OVERWORLD, striatedOresOverworld, placement(RarityFilter.onAverageOnceEvery(18), -30, 70));
         register(ctx, TFMG_STRIATED_ORES_NETHER, striatedOresNether, placement(RarityFilter.onAverageOnceEvery(18), 40, 90));
+        register(ctx, SALAMMONIAC_GEODE, salammoniacGeode, List.of(
+            RarityFilter.onAverageOnceEvery(24),
+            InSquarePlacement.spread(),
+            HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(6), VerticalAnchor.absolute(30)),
+            ConfigPlacementFilter.INSTANCE
+        ));
     }
 
     private static List<PlacementModifier> placement(PlacementModifier frequency, int minHeight, int maxHeight) {

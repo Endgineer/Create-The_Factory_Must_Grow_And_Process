@@ -7,6 +7,8 @@ import com.drmangotea.tfmg.TFMG;
 import com.drmangotea.tfmg.worldgen.deposits.OilDepositFeature;
 import com.drmangotea.tfmg.worldgen.deposits.OilWellFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.GeodeFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.GeodeConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -24,6 +26,8 @@ public class TFMGFeatures {
 
         public static final RegistryObject<OilWellFeature> OIL_WELL =
                 FEATURES.register("oil_well", () -> new OilWellFeature(NoneFeatureConfiguration.CODEC));
+        
+        public static final RegistryObject<GeodeFeature> GEODE = FEATURES.register("geode", () -> new GeodeFeature(GeodeConfiguration.CODEC));
 
         public static void register(IEventBus modEventBus) {
                 FEATURES.register(modEventBus);

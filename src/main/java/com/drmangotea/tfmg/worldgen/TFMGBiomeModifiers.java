@@ -23,7 +23,8 @@ public class TFMGBiomeModifiers {
             NICKEL_ORE = key("nickel_ore"),
             LITHIUM_ORE = key("lithium_ore"),
             TFMG_STRIATED_ORES_OVERWORLD = key("tfmg_striated_ores_overworld"),
-            TFMG_STRIATED_ORES_NETHER = key("tfmg_striated_ores_nether");
+            TFMG_STRIATED_ORES_NETHER = key("tfmg_striated_ores_nether"),
+            SALAMMONIAC_GEODE = key("salammoniac_geode");
 
     private static ResourceKey<BiomeModifier> key(String name) {
         return ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, TFMG.asResource(name));
@@ -46,7 +47,7 @@ public class TFMGBiomeModifiers {
         Holder<PlacedFeature> lithiumOre = featureLookup.getOrThrow(TFMGPlacedFeatures.LITHIUM_ORE);
         Holder<PlacedFeature> striatedOresOverworld = featureLookup.getOrThrow(TFMGPlacedFeatures.TFMG_STRIATED_ORES_OVERWORLD);
         Holder<PlacedFeature> striatedOresNether = featureLookup.getOrThrow(TFMGPlacedFeatures.TFMG_STRIATED_ORES_NETHER);
-
+        Holder<PlacedFeature> salammoniacGeode = featureLookup.getOrThrow(TFMGPlacedFeatures.SALAMMONIAC_GEODE);
 
         ctx.register(OIL_DEPOSIT,addOre(isOverworld,oilDeposit));
 
@@ -57,6 +58,7 @@ public class TFMGBiomeModifiers {
         ctx.register(LITHIUM_ORE, addOre(isOverworld, lithiumOre));
         ctx.register(TFMG_STRIATED_ORES_OVERWORLD, addOre(isOverworld, striatedOresOverworld));
         ctx.register(TFMG_STRIATED_ORES_NETHER, addOre(isNether, striatedOresNether));
+        ctx.register(SALAMMONIAC_GEODE, addGeode(isOverworld, salammoniacGeode));
     }
 
     private static ForgeBiomeModifiers.AddFeaturesBiomeModifier addOre(HolderSet<Biome> biomes, Holder<PlacedFeature> feature) {
@@ -68,4 +70,7 @@ public class TFMGBiomeModifiers {
         return new ForgeBiomeModifiers.AddFeaturesBiomeModifier(biomes, HolderSet.direct(feature), GenerationStep.Decoration.FLUID_SPRINGS);
     }
 
+    private static ForgeBiomeModifiers.AddFeaturesBiomeModifier addGeode(HolderSet<Biome> biomes, Holder<PlacedFeature> feature) {
+        return new ForgeBiomeModifiers.AddFeaturesBiomeModifier(biomes, HolderSet.direct(feature), GenerationStep.Decoration.LOCAL_MODIFICATIONS);
+    }
 }

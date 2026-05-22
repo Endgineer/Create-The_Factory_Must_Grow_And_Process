@@ -10,10 +10,13 @@ import com.drmangotea.tfmg.base.TFMGSpriteShifts;
 import com.drmangotea.tfmg.base.blocks.TFMGDirectionalBlock;
 import com.drmangotea.tfmg.base.blocks.TFMGVanillaBlockStates;
 import com.drmangotea.tfmg.config.TFMGStress;
+import com.drmangotea.tfmg.content.decoration.BuddingSalammoniacBlock;
 import com.drmangotea.tfmg.content.decoration.FrameBlock;
 import com.drmangotea.tfmg.content.decoration.LithiumBlock;
 import com.drmangotea.tfmg.content.decoration.LithiumTorchBlock;
 import com.drmangotea.tfmg.content.decoration.LithiumTorchGenerator;
+import com.drmangotea.tfmg.content.decoration.SalammoniacBlock;
+import com.drmangotea.tfmg.content.decoration.SalammoniacClusterBlock;
 import com.drmangotea.tfmg.content.decoration.TrussBlock;
 import com.drmangotea.tfmg.content.decoration.cogs.TFMGCogWheelBlock;
 import com.drmangotea.tfmg.content.decoration.cogs.TFMGCogwheelBlockItem;
@@ -165,8 +168,14 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraft.core.Direction;
 import net.minecraftforge.common.Tags;
 
 import java.util.ArrayList;
@@ -195,8 +204,6 @@ import static com.simibubi.create.foundation.data.TagGen.axeOnly;
 import static com.simibubi.create.foundation.data.TagGen.axeOrPickaxe;
 import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
 import static com.simibubi.create.foundation.data.TagGen.tagBlockAndItem;
-import static com.drmangotea.tfmg.registry.TFMGTags.forgeBlockTag;
-import static com.drmangotea.tfmg.registry.TFMGTags.forgeItemTag;
 
 @SuppressWarnings("removal")
 public class TFMGBlocks {
@@ -680,6 +687,182 @@ public class TFMGBlocks {
                     .add(b, p.createSingleItemTable(TFMGItems.FIRECLAY_BALL.get())))
             .simpleItem()
             .register();
+    
+    public static final BlockEntry<SalammoniacBlock> SALAMMONIAC_BLOCK = REGISTRATE.block("salammoniac_block", SalammoniacBlock::new)
+            .initialProperties(() -> Blocks.AMETHYST_BLOCK)
+            .properties(p -> p.mapColor(MapColor.COLOR_CYAN))
+            .transform(pickaxeOnly())
+            .loot((lootTable, block) -> lootTable.dropSelf(block))
+            .item()
+            .transform(customItemModel())
+            .register();
+
+    public static final BlockEntry<BuddingSalammoniacBlock> BUDDING_SALAMMONIAC = REGISTRATE.block("budding_salammoniac", BuddingSalammoniacBlock::new)
+            .initialProperties(() -> Blocks.BUDDING_AMETHYST)
+            .properties(p -> p.mapColor(MapColor.COLOR_CYAN))
+            .transform(pickaxeOnly())
+            .loot((lootTable, block) -> lootTable.dropOther(block, SALAMMONIAC_BLOCK.asItem()))
+            .item()
+            .transform(customItemModel())
+            .register();
+
+    public static final BlockEntry<SalammoniacClusterBlock> SALAMMONIAC_CLUSTER = REGISTRATE.block("salammoniac_cluster", p -> new SalammoniacClusterBlock(7, 3, p))
+            .initialProperties(() -> Blocks.AMETHYST_CLUSTER)
+            .properties(p -> p.mapColor(MapColor.COLOR_CYAN))
+            .transform(pickaxeOnly())
+            .loot((lootTable, block) -> lootTable.add(block, LootTable.lootTable()
+                    .withPool(LootPool.lootPool()
+                            .setRolls(ConstantValue.exactly(1))
+                            .add(LootItem.lootTableItem(TFMGItems.SALAMMONIAC_CRYSTAL.asItem())
+                                    .apply(SetItemCountFunction.setCount(ConstantValue.exactly(4)))
+                                    .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))
+                            )
+                    )
+            ))
+            .blockstate((context, provider) -> provider.getVariantBuilder(context.get()).forAllStates(state -> {
+                Direction direction = state.getValue(SalammoniacClusterBlock.FACING);
+                
+                int xAngle = switch (direction) {
+                    case UP -> 0;
+                    case DOWN -> 180;
+                    default -> 90;
+                };
+                
+                int yAngle = switch (direction) {
+                    case NORTH -> 0;
+                    case EAST -> 90;
+                    case SOUTH -> 180;
+                    case WEST -> 270;
+                    default -> 0;
+                };
+                
+                return ConfiguredModel.builder()
+                        .modelFile(provider.models().cross(context.getName(), provider.blockTexture(context.get())).renderType("cutout"))
+                        .rotationX(xAngle)
+                        .rotationY(yAngle)
+                        .build();
+            }))
+            .item()
+            .transform(customItemModel())
+            .register();
+
+    public static final BlockEntry<SalammoniacClusterBlock> SMALL_SALAMMONIAC_BUD = REGISTRATE.block("small_salammoniac_bud", p -> new SalammoniacClusterBlock(3, 4, p))
+            .initialProperties(() -> Blocks.SMALL_AMETHYST_BUD)
+            .properties(p -> p.mapColor(MapColor.COLOR_CYAN))
+            .transform(pickaxeOnly())
+            .loot((lootTable, block) -> lootTable.add(block, LootTable.lootTable()
+                    .withPool(LootPool.lootPool()
+                            .setRolls(ConstantValue.exactly(1))
+                            .add(LootItem.lootTableItem(TFMGItems.SALAMMONIAC_CRYSTAL.asItem())
+                                    .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))
+                            )
+                    )
+            ))
+            .blockstate((context, provider) -> provider.getVariantBuilder(context.get()).forAllStates(state -> {
+                Direction direction = state.getValue(SalammoniacClusterBlock.FACING);
+                
+                int xAngle = switch (direction) {
+                    case UP -> 0;
+                    case DOWN -> 180;
+                    default -> 90;
+                };
+                
+                int yAngle = switch (direction) {
+                    case NORTH -> 0;
+                    case EAST -> 90;
+                    case SOUTH -> 180;
+                    case WEST -> 270;
+                    default -> 0;
+                };
+                
+                return ConfiguredModel.builder()
+                        .modelFile(provider.models().cross(context.getName(), provider.blockTexture(context.get())).renderType("cutout"))
+                        .rotationX(xAngle)
+                        .rotationY(yAngle)
+                        .build();
+            }))
+            .item()
+            .transform(customItemModel())
+            .register();
+
+    public static final BlockEntry<SalammoniacClusterBlock> MEDIUM_SALAMMONIAC_BUD = REGISTRATE.block("medium_salammoniac_bud", p -> new SalammoniacClusterBlock(4, 3, p))
+            .initialProperties(() -> Blocks.MEDIUM_AMETHYST_BUD)
+            .properties(p -> p.mapColor(MapColor.COLOR_CYAN))
+            .transform(pickaxeOnly())
+            .loot((lootTable, block) -> lootTable.add(block, LootTable.lootTable()
+                    .withPool(LootPool.lootPool()
+                            .setRolls(ConstantValue.exactly(1))
+                            .add(LootItem.lootTableItem(TFMGItems.SALAMMONIAC_CRYSTAL.asItem())
+                                    .apply(SetItemCountFunction.setCount(ConstantValue.exactly(2)))
+                            )
+                    )
+            ))
+            .blockstate((context, provider) -> provider.getVariantBuilder(context.get()).forAllStates(state -> {
+                Direction direction = state.getValue(SalammoniacClusterBlock.FACING);
+                
+                int xAngle = switch (direction) {
+                    case UP -> 0;
+                    case DOWN -> 180;
+                    default -> 90;
+                };
+                
+                int yAngle = switch (direction) {
+                    case NORTH -> 0;
+                    case EAST -> 90;
+                    case SOUTH -> 180;
+                    case WEST -> 270;
+                    default -> 0;
+                };
+                
+                return ConfiguredModel.builder()
+                        .modelFile(provider.models().cross(context.getName(), provider.blockTexture(context.get())).renderType("cutout"))
+                        .rotationX(xAngle)
+                        .rotationY(yAngle)
+                        .build();
+            }))
+            .item()
+            .transform(customItemModel())
+            .register();
+
+    public static final BlockEntry<SalammoniacClusterBlock> LARGE_SALAMMONIAC_BUD = REGISTRATE.block("large_salammoniac_bud", p -> new SalammoniacClusterBlock(5, 3, p))
+            .initialProperties(() -> Blocks.LARGE_AMETHYST_BUD)
+            .properties(p -> p.mapColor(MapColor.COLOR_CYAN))
+            .transform(pickaxeOnly())
+            .loot((lootTable, block) -> lootTable.add(block, LootTable.lootTable()
+                    .withPool(LootPool.lootPool()
+                            .setRolls(ConstantValue.exactly(1))
+                            .add(LootItem.lootTableItem(TFMGItems.SALAMMONIAC_CRYSTAL.asItem())
+                                    .apply(SetItemCountFunction.setCount(ConstantValue.exactly(3)))
+                            )
+                    )
+            ))
+            .blockstate((context, provider) -> provider.getVariantBuilder(context.get()).forAllStates(state -> {
+                Direction direction = state.getValue(SalammoniacClusterBlock.FACING);
+                
+                int xAngle = switch (direction) {
+                    case UP -> 0;
+                    case DOWN -> 180;
+                    default -> 90;
+                };
+                
+                int yAngle = switch (direction) {
+                    case NORTH -> 0;
+                    case EAST -> 90;
+                    case SOUTH -> 180;
+                    case WEST -> 270;
+                    default -> 0;
+                };
+                
+                return ConfiguredModel.builder()
+                        .modelFile(provider.models().cross(context.getName(), provider.blockTexture(context.get())).renderType("cutout"))
+                        .rotationX(xAngle)
+                        .rotationY(yAngle)
+                        .build();
+            }))
+            .item()
+            .transform(customItemModel())
+            .register();
+    
     //------------------MISC------------------//
     public static final BlockEntry<Block> FOSSILSTONE = REGISTRATE.block("fossilstone", Block::new)
             .initialProperties(() -> Blocks.OBSIDIAN)

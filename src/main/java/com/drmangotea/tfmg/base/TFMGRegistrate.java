@@ -1,6 +1,7 @@
 package com.drmangotea.tfmg.base;
 
 import com.drmangotea.tfmg.TFMG;
+import com.drmangotea.tfmg.base.fluid.AqueousFluidType;
 import com.drmangotea.tfmg.base.fluid.GasFluidType;
 import com.drmangotea.tfmg.content.electricity.connection.cable_type.CableType;
 import com.drmangotea.tfmg.content.electricity.connection.cable_type.CableTypeBuilder;
@@ -20,6 +21,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import static com.drmangotea.tfmg.registry.TFMGFluids.getGasTexture;
+import static com.drmangotea.tfmg.registry.TFMGFluids.getAqueousTexture;
 
 public class TFMGRegistrate extends CreateRegistrate {
     public static String autoLang(String id) {
@@ -38,8 +40,11 @@ public class TFMGRegistrate extends CreateRegistrate {
     }
 
     public FluidBuilder<VirtualFluid, CreateRegistrate> gasFluid(String name, int color) {
-        return entry(name, c -> new VirtualFluidBuilder<>(self(),self(), name, c, getGasTexture(), getGasTexture(),
-                GasFluidType.create(color),VirtualFluid::createSource,VirtualFluid::createFlowing));
+        return entry(name, c -> new VirtualFluidBuilder<>(self(), self(), name, c, getGasTexture(), getGasTexture(), GasFluidType.create(color), VirtualFluid::createSource, VirtualFluid::createFlowing));
+    }
+
+    public FluidBuilder<VirtualFluid, CreateRegistrate> aqueousFluid(String name, int color) {
+        return entry(name, c -> new VirtualFluidBuilder<>(self(), self(), name, c, getAqueousTexture(), getAqueousTexture(), AqueousFluidType.create(color), VirtualFluid::createSource, VirtualFluid::createFlowing));
     }
 
     protected TFMGRegistrate() {

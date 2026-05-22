@@ -44,7 +44,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -55,7 +54,6 @@ import org.slf4j.Logger;
 import static net.createmod.catnip.lang.FontHelper.styleFromColor;
 
 
-@SuppressWarnings("removal")
 @Mod(TFMG.MOD_ID)
 public class TFMG {
 
@@ -77,13 +75,13 @@ public class TFMG {
     }
 
 
-    public TFMG() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    public TFMG(FMLJavaModLoadingContext context) {
+        IEventBus modEventBus = context.getModEventBus();
 
         // ===== PHASE 1: CORE SETUP =====
         LOGGER.info("[TFMG] Initializing core systems...");
         REGISTRATE.registerEventListeners(modEventBus);
-        TFMGConfigs.register(ModLoadingContext.get());
+        TFMGConfigs.register(context);
         TFMGRegistries.register();
 
         // Register event listeners early
@@ -136,7 +134,6 @@ public class TFMG {
         LOGGER.info("[TFMG] Initialization complete!");
     }
 
-    @SuppressWarnings("removal")
     private void clientSetup(final FMLClientSetupEvent event) {
         ItemBlockRenderTypes.setRenderLayer(TFMGColoredFires.GREEN_FIRE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(TFMGColoredFires.BLUE_FIRE.get(), RenderType.cutout());
@@ -161,6 +158,6 @@ public class TFMG {
 
 
     public static ResourceLocation asResource(String path) {
-        return new ResourceLocation(MOD_ID, path);
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
 }
