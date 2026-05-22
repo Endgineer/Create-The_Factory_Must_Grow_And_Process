@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:bucket"
+    },
+    {
+      "amount": 1000,
+      "fluid": "tfmg:hydrogen_chloride",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "tfmg:hydrogen_chloride_bucket"
+    }
+  ]
+}

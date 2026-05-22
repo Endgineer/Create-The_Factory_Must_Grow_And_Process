@@ -1,0 +1,30 @@
+{
+  "type": "tfmg:vat_machine_recipe",
+  "allowedVatTypes": [
+    "tfmg:steel_vat",
+    "tfmg:firebrick_lined_vat"
+  ],
+  "ingredients": [
+    {
+      "amount": 2,
+      "fluid": "minecraft:water",
+      "nbt": {}
+    }
+  ],
+  "machines": [
+    "tfmg:electrode",
+    "tfmg:electrode"
+  ],
+  "minSize": 1,
+  "processingTime": 1,
+  "results": [
+    {
+      "amount": 2,
+      "fluid": "tfmg:hydrogen"
+    },
+    {
+      "amount": 1,
+      "fluid": "tfmg:oxygen"
+    }
+  ]
+}

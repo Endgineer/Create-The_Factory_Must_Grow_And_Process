@@ -21,6 +21,22 @@
     "tfmg:flowing_air",
     "tfmg:air",
     "tfmg:flowing_hot_air",
-    "tfmg:hot_air"
+    "tfmg:hot_air",
+    "tfmg:flowing_oxygen",
+    "tfmg:oxygen",
+    "tfmg:flowing_chlorine",
+    "tfmg:chlorine",
+    "tfmg:flowing_sulfur_dioxide",
+    "tfmg:sulfur_dioxide",
+    "tfmg:flowing_sulfur_trioxide",
+    "tfmg:sulfur_trioxide",
+    "tfmg:flowing_hydrogen_chloride",
+    "tfmg:hydrogen_chloride",
+    "tfmg:flowing_nitrogen_oxide",
+    "tfmg:nitrogen_oxide",
+    "tfmg:flowing_nitrogen_dioxide",
+    "tfmg:nitrogen_dioxide",
+    "tfmg:flowing_ammonia",
+    "tfmg:ammonia"
   ]
 }

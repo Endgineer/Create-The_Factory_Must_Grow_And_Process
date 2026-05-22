@@ -1,0 +1,28 @@
+{
+  "type": "tfmg:vat_machine_recipe",
+  "allowedVatTypes": [
+    "tfmg:steel_vat",
+    "tfmg:firebrick_lined_vat"
+  ],
+  "ingredients": [
+    {
+      "item": "salt:salt"
+    },
+    {
+      "amount": 1000,
+      "fluid": "minecraft:water",
+      "nbt": {}
+    }
+  ],
+  "machines": [
+    "tfmg:mixing"
+  ],
+  "minSize": 1,
+  "processingTime": 1000,
+  "results": [
+    {
+      "amount": 1000,
+      "fluid": "tfmg:brine"
+    }
+  ]
+}

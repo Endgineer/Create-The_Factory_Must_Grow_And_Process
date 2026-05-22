@@ -1,0 +1,34 @@
+{
+  "type": "tfmg:vat_machine_recipe",
+  "allowedVatTypes": [
+    "tfmg:steel_vat",
+    "tfmg:firebrick_lined_vat"
+  ],
+  "ingredients": [
+    {
+      "amount": 2,
+      "fluid": "tfmg:brine",
+      "nbt": {}
+    }
+  ],
+  "machines": [
+    "tfmg:electrode",
+    "tfmg:electrode"
+  ],
+  "minSize": 1,
+  "processingTime": 1,
+  "results": [
+    {
+      "amount": 2,
+      "fluid": "tfmg:sodium_hydroxide"
+    },
+    {
+      "amount": 1,
+      "fluid": "tfmg:hydrogen"
+    },
+    {
+      "amount": 1,
+      "fluid": "tfmg:chlorine"
+    }
+  ]
+}

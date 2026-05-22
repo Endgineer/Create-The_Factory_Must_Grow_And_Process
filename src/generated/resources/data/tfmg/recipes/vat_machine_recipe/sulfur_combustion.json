@@ -1,0 +1,29 @@
+{
+  "type": "tfmg:vat_machine_recipe",
+  "allowedVatTypes": [
+    "tfmg:steel_vat",
+    "tfmg:firebrick_lined_vat"
+  ],
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "item": "tfmg:sulfur_dust"
+    },
+    {
+      "amount": 8000,
+      "fluid": "tfmg:oxygen",
+      "nbt": {}
+    }
+  ],
+  "machines": [
+    "tfmg:mixing"
+  ],
+  "minSize": 1,
+  "processingTime": 8000,
+  "results": [
+    {
+      "amount": 8000,
+      "fluid": "tfmg:sulfur_dioxide"
+    }
+  ]
+}

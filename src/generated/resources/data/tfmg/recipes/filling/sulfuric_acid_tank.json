@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:bucket"
+    },
+    {
+      "amount": 1000,
+      "fluid": "tfmg:sulfuric_acid",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "tfmg:sulfuric_acid_bucket"
+    }
+  ]
+}

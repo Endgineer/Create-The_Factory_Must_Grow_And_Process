@@ -1,0 +1,35 @@
+{
+  "type": "tfmg:vat_machine_recipe",
+  "allowedVatTypes": [
+    "tfmg:steel_vat",
+    "tfmg:firebrick_lined_vat"
+  ],
+  "heatRequirement": "superheated",
+  "ingredients": [
+    {
+      "amount": 4,
+      "fluid": "tfmg:ammonia",
+      "nbt": {}
+    },
+    {
+      "amount": 5,
+      "fluid": "tfmg:oxygen",
+      "nbt": {}
+    }
+  ],
+  "machines": [
+    "tfmg:mixing"
+  ],
+  "minSize": 1,
+  "processingTime": 1,
+  "results": [
+    {
+      "amount": 4,
+      "fluid": "tfmg:nitrogen_oxide"
+    },
+    {
+      "amount": 6,
+      "fluid": "minecraft:water"
+    }
+  ]
+}

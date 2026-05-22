@@ -1,0 +1,30 @@
+{
+  "type": "tfmg:vat_machine_recipe",
+  "allowedVatTypes": [
+    "tfmg:steel_vat",
+    "tfmg:firebrick_lined_vat"
+  ],
+  "ingredients": [
+    {
+      "amount": 1,
+      "fluid": "tfmg:hydrogen_chloride",
+      "nbt": {}
+    },
+    {
+      "amount": 1,
+      "fluid": "minecraft:water",
+      "nbt": {}
+    }
+  ],
+  "machines": [
+    "tfmg:mixing"
+  ],
+  "minSize": 1,
+  "processingTime": 1,
+  "results": [
+    {
+      "amount": 1,
+      "fluid": "tfmg:hydrochloric_acid"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "type": "minecraft:stonecutting",
   "count": 1,
   "ingredient": {
-    "tag": "tfmg:stone_types/galena"
+    "tag": "forge:stone_types/galena"
   },
   "result": "tfmg:galena_pillar"
 }

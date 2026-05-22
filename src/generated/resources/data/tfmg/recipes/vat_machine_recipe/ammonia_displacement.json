@@ -1,0 +1,33 @@
+{
+  "type": "tfmg:vat_machine_recipe",
+  "allowedVatTypes": [
+    "tfmg:steel_vat",
+    "tfmg:firebrick_lined_vat"
+  ],
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "item": "tfmg:salammoniac_crystal"
+    },
+    {
+      "amount": 1000,
+      "fluid": "tfmg:sodium_hydroxide",
+      "nbt": {}
+    }
+  ],
+  "machines": [
+    "tfmg:mixing"
+  ],
+  "minSize": 1,
+  "processingTime": 1000,
+  "results": [
+    {
+      "amount": 1000,
+      "fluid": "tfmg:ammonia"
+    },
+    {
+      "amount": 1000,
+      "fluid": "tfmg:brine"
+    }
+  ]
+}

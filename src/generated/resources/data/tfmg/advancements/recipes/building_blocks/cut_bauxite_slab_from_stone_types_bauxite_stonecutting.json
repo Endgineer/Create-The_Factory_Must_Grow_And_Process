@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "tfmg:stone_types/bauxite"
+            "tag": "forge:stone_types/bauxite"
           }
         ]
       },

@@ -11,9 +11,7 @@
     "L": {
       "tag": "forge:plates/lead"
     },
-    "S": {
-      "item": "tfmg:sulfuric_acid_bucket"
-    },
+    "S": [],
     "W": {
       "tag": "forge:wires/copper"
     }
