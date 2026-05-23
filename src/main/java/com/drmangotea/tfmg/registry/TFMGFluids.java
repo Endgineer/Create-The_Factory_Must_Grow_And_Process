@@ -2,7 +2,6 @@ package com.drmangotea.tfmg.registry;
 
 import com.drmangotea.tfmg.TFMG;
 import com.drmangotea.tfmg.base.TFMGUtils;
-import com.drmangotea.tfmg.base.fluid.AcidFluidType;
 import com.drmangotea.tfmg.base.fluid.AsphaltFluid;
 import com.drmangotea.tfmg.base.fluid.ConcreteFluid;
 import com.drmangotea.tfmg.base.fluid.HotFluidType;
@@ -84,24 +83,6 @@ public class TFMGFluids {
     private static FluidEntry<ForgeFlowingFluid.Flowing> fluid(String name, int fogColor, TagKey<Fluid>... tags) {
         return REGISTRATE.fluid(name, getLocation(name), getLocationFlow(name),
                         SolidRenderedPlaceableFluidType.create(fogColor, () -> 1f / 32f))
-                .lang(toHumanReadable(name))
-                .properties(b -> b.viscosity(1000)
-                        .density(1000))
-                .fluidProperties(p -> p.levelDecreasePerBlock(1)
-                        .tickRate(10)
-                        .slopeFindDistance(5)
-                        .explosionResistance(100f))
-                .tag(tags)
-                .source(ForgeFlowingFluid.Source::new)
-                .bucket()
-                .tag(ItemTags.create(ResourceLocation.fromNamespaceAndPath("forge", "buckets/" + name)))
-                .build()
-                .register();
-    }
-    @SafeVarargs
-    private static FluidEntry<ForgeFlowingFluid.Flowing> acidFluid(String name, int fogColor, TagKey<Fluid>... tags) {
-        return REGISTRATE.fluid(name, getLocation(name), getLocationFlow(name),
-                        AcidFluidType.create(fogColor, () -> 1f / 32f))
                 .lang(toHumanReadable(name))
                 .properties(b -> b.viscosity(1000)
                         .density(1000))

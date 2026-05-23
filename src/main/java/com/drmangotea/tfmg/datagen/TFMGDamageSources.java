@@ -14,10 +14,6 @@ public class TFMGDamageSources {
 		return source(TFMGDamageTypes.CONCRETE, level);
 	}
 
-	public static DamageSource acid(Level level) {
-		return source(TFMGDamageTypes.ACID, level);
-	}
-
 	public static DamageSource blastFurnace(Level level) {
 		return source(TFMGDamageTypes.BLAST_FURNACE, level);
 	}

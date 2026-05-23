@@ -11,7 +11,6 @@ import net.minecraft.world.damagesource.DamageType;
 public class TFMGDamageTypes {
 	public static final ResourceKey<DamageType>
 			CONCRETE = key("concrete"),
-			ACID = key("acid"),
 			BLAST_FURNACE = key("blast_furnace");
 
 	private static ResourceKey<DamageType> key(String name) {
@@ -20,7 +19,6 @@ public class TFMGDamageTypes {
 
 	public static void bootstrap(BootstapContext<DamageType> ctx) {
 		new DamageTypeBuilder(CONCRETE).register(ctx);
-		new DamageTypeBuilder(ACID).register(ctx);
 		new DamageTypeBuilder(BLAST_FURNACE).register(ctx);
 	}
 }
