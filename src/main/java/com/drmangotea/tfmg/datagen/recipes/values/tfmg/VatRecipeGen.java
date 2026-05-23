@@ -2,7 +2,6 @@ package com.drmangotea.tfmg.datagen.recipes.values.tfmg;
 
 import com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider;
 import com.drmangotea.tfmg.datagen.recipes.builder.VatMachineRecipeBuilder;
-import com.drmangotea.tfmg.datagen.recipes.builder.VatMachineRecipeBuilder.VatRecipeParams;
 import com.drmangotea.tfmg.registry.TFMGFluids;
 import com.drmangotea.tfmg.registry.TFMGItems;
 import com.drmangotea.tfmg.registry.TFMGTags;
@@ -19,7 +18,6 @@ import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.liquidPla
 import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.naphtha;
 import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.F.propylene;
 import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.I.crushedRawIron;
-import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.I.nitrateDust;
 import static com.drmangotea.tfmg.datagen.recipes.TFMGRecipeProvider.I.rubber;
 import static com.drmangotea.tfmg.datagen.recipes.builder.VatMachineRecipeBuilder.VatRecipeParams;
 
@@ -70,14 +68,6 @@ public class VatRecipeGen extends TFMGRecipeProvider {
                             .output(TFMGFluids.NEON.get(), 1)
                             .duration(10)
                     , centrifuge()),
-            SULFURIC_ACID = createVatRecipe("sulfuric_acid", b -> (VatMachineRecipeBuilder) b
-                    .require(water(), 1000)
-                    .require(sulfurDust())
-                    .require(sulfurDust())
-                    .require(sulfurDust())
-                    .require(nitrateDust())
-                    .output(sulfuricAcid(), 500)
-            ,mixing()),
 
             RUBBER = createVatRecipe("rubber", b -> (VatMachineRecipeBuilder) b
                             .require(heavyOil(), 250)
