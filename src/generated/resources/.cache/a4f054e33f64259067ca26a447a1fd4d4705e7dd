@@ -1,4 +1,4 @@
-// 1.20.1	2026-05-21T23:42:26.9981819	TFMG's Recipes
+// 1.20.1	2026-05-23T11:37:07.752208	TFMG's Recipes
 9195362b7e061e947c4de657ce3b7c49c1e271d1 data/tfmg/advancements/recipes/misc/blasting/lead_ingot_blasting.json
 14f26d532b7adf630370bfc99bf32a0ce4dc7e77 data/tfmg/advancements/recipes/misc/blasting/lead_ingot_from_crushed_blasting.json
 c918937eba17a031abe7355ef190d20cc1e41f3c data/tfmg/advancements/recipes/misc/blasting/lithium_ingot_blasting.json
@@ -615,7 +615,6 @@ a41059765ad56b8c1a9b2b7fc24018928d884737 data/tfmg/recipes/vat_machine_recipe/pl
 e0d228ab29e4b6054f4518adbd4cbf9935b012cb data/tfmg/recipes/vat_machine_recipe/plastic_from_propylene.json
 091cadaa70039d60f36362cb2728cf0ffc29837e data/tfmg/recipes/vat_machine_recipe/rubber.json
 ab81ff7431c6a59e50db6c215db5664ff1c63c54 data/tfmg/recipes/vat_machine_recipe/sulfurdioxide_combustion.json
-09e29b7566577c4eacb8fd56764d3eba2b9fc536 data/tfmg/recipes/vat_machine_recipe/sulfuric_acid.json
 65623d5a230ba12275bc6c93ebd7b533fe86b2c5 data/tfmg/recipes/vat_machine_recipe/sulfurtrioxide_absorption.json
 7c3869fbee62f18173690c4d4d75dfefe1334aec data/tfmg/recipes/vat_machine_recipe/sulfur_combustion.json
 86bf5241e9bd3b2e903ee56ebd2f9d3a9eaa211a data/tfmg/recipes/vat_machine_recipe/water_electrolysis.json
