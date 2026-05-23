@@ -204,9 +204,6 @@ public class TFMGRecipeProvider extends RecipeProvider {
         public static ItemLike thermitePowder() {
             return TFMGItems.THERMITE_POWDER.get();
         }
-        public static ItemLike crushedRawAluminum() {
-            return AllItems.CRUSHED_BAUXITE.get();
-        }
         public static ItemLike experienceNugget() {
             return AllItems.EXP_NUGGET.get();
         }

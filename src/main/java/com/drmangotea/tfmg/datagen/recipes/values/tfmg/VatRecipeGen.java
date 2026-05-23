@@ -99,18 +99,6 @@ public class VatRecipeGen extends TFMGRecipeProvider {
                             .output(TFMGItems.ETCHED_CIRCUIT_BOARD)
                             .duration(100)
                     , new VatRecipeParams()),
-            ALUMINUM = createVatRecipe("aluminum", b -> (VatMachineRecipeBuilder) b
-                            .require(TFMGItems.BAUXITE_POWDER)
-                            .require(TFMGItems.BAUXITE_POWDER)
-                            .require(TFMGItems.BAUXITE_POWDER)
-                            .require(TFMGItems.BAUXITE_POWDER)
-                            .output(TFMGItems.ALUMINUM_INGOT)
-                            .output(.5f, TFMGItems.ALUMINUM_NUGGET, 4)
-                            .output(.25f, TFMGItems.ALUMINUM_NUGGET, 2)
-                            .output(TFMGFluids.CARBON_DIOXIDE.get(), 500)
-                            .duration(100)
-                            .requiresHeat(HeatCondition.HEATED)
-                    , electrolysis()),
 
             WATER_ELECTROLYSIS = createVatRecipe("water_electrolysis", b -> (VatMachineRecipeBuilder) b
                     .require(water(), 2)

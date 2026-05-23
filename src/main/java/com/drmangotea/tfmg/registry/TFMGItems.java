@@ -97,6 +97,7 @@ public class TFMGItems {
             NICKEL_NUGGET = taggedIngredient("nickel_nugget", CommonMetal.NICKEL.nuggets, Tags.Items.NUGGETS),
             LITHIUM_NUGGET = taggedIngredient("lithium_nugget", TFMGItemTags.NUGGETS_LITHIUM.tag, Tags.Items.NUGGETS),
             RAW_LEAD = taggedIngredient("raw_lead", CommonMetal.LEAD.rawOres, Tags.Items.RAW_MATERIALS),
+            RAW_ALUMINUM = taggedIngredient("raw_aluminum", CommonMetal.ALUMINUM.rawOres, Tags.Items.RAW_MATERIALS),
             RAW_NICKEL = taggedIngredient("raw_nickel", CommonMetal.NICKEL.rawOres, Tags.Items.RAW_MATERIALS),
             RAW_LITHIUM = taggedIngredient("raw_lithium", TFMGItemTags.RAW_LITHIUM.tag, Tags.Items.RAW_MATERIALS),
             SYNTHETIC_LEATHER = taggedIngredient("synthetic_leather", Tags.Items.LEATHER),
@@ -143,7 +144,6 @@ public class TFMGItems {
             CONCRETE_MIXTURE = REGISTRATE.item("concrete_mixture", Item::new).register(),
             ASPHALT_MIXTURE = REGISTRATE.item("asphalt_mixture", Item::new).register(),
             MAGNETIC_ALLOY_INGOT = REGISTRATE.item("magnetic_alloy_ingot", Item::new).register(),
-            BAUXITE_POWDER = REGISTRATE.item("bauxite_powder", Item::new).register(),
 
     EMPTY_CIRCUIT_BOARD = REGISTRATE.item("empty_circuit_board", Item::new).register(),
             COATED_CIRCUIT_BOARD = REGISTRATE.item("coated_circuit_board", Item::new).register(),

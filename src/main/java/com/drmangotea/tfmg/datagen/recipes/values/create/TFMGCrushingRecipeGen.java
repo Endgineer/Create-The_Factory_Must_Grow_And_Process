@@ -32,10 +32,6 @@ public class TFMGCrushingRecipeGen extends TFMGProcessingRecipeGen {
                     .output(.75f,coal(), 1)
                     .output(.2f,coal(), 1)
             ),
-            BAUXITE = create(TFMGPaletteStoneTypes.BAUXITE.getBaseBlock()::get, b -> b
-                    .output(.75f, TFMGItems.BAUXITE_POWDER, 2)
-                    .output(.2f,TFMGItems.BAUXITE_POWDER, 1)
-            ),
             LIMESAND = create(I::limestone, b -> b
                     .output(limesand(), 1)
             ),

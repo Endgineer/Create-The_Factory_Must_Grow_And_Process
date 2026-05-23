@@ -23,11 +23,6 @@ import static com.drmangotea.tfmg.base.palettes.TFMGPaletteBlockPattern.STANDARD
 public enum TFMGPaletteStoneTypes {
 
 
-    BAUXITE(STANDARD_RANGE, r -> r.paletteStoneBlock("bauxite", () -> Blocks.DEEPSLATE, true, true)
-            .properties(p -> p.destroyTime(1.25f))
-            .register()),
-
-
     GALENA(STANDARD_RANGE, r -> r.paletteStoneBlock("galena", () -> Blocks.CALCITE, true, true)
             .properties(p -> p.destroyTime(1.25f))
             .register()),

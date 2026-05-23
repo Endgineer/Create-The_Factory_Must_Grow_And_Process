@@ -20,6 +20,7 @@ public class TFMGBiomeModifiers {
             OIL_DEPOSIT = key("oil_deposit"),
             OIL_WELL = key("oil_well"),
             LEAD_ORE = key("lead_ore"),
+            ALUMINUM_ORE = key("aluminum_ore"),
             NICKEL_ORE = key("nickel_ore"),
             LITHIUM_ORE = key("lithium_ore"),
             TFMG_STRIATED_ORES_OVERWORLD = key("tfmg_striated_ores_overworld"),
@@ -43,6 +44,7 @@ public class TFMGBiomeModifiers {
         Holder<PlacedFeature> oilWell = featureLookup.getOrThrow(TFMGPlacedFeatures.OIL_WELL);
 
         Holder<PlacedFeature> leadOre = featureLookup.getOrThrow(TFMGPlacedFeatures.LEAD_ORE);
+        Holder<PlacedFeature> aluminumOre = featureLookup.getOrThrow(TFMGPlacedFeatures.ALUMINUM_ORE);
         Holder<PlacedFeature> nickelOre = featureLookup.getOrThrow(TFMGPlacedFeatures.NICKEL_ORE);
         Holder<PlacedFeature> lithiumOre = featureLookup.getOrThrow(TFMGPlacedFeatures.LITHIUM_ORE);
         Holder<PlacedFeature> striatedOresOverworld = featureLookup.getOrThrow(TFMGPlacedFeatures.TFMG_STRIATED_ORES_OVERWORLD);
@@ -54,6 +56,7 @@ public class TFMGBiomeModifiers {
         ctx.register(OIL_WELL,addOilWell(isDesert,oilWell));
 
         ctx.register(LEAD_ORE, addOre(isOverworld, leadOre));
+        ctx.register(ALUMINUM_ORE, addOre(isOverworld, aluminumOre));
         ctx.register(NICKEL_ORE, addOre(isOverworld, nickelOre));
         ctx.register(LITHIUM_ORE, addOre(isOverworld, lithiumOre));
         ctx.register(TFMG_STRIATED_ORES_OVERWORLD, addOre(isOverworld, striatedOresOverworld));

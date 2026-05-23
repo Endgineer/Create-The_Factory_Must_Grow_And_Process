@@ -1,4 +1,4 @@
-// 1.20.1	2026-05-23T11:37:07.752208	TFMG's Recipes
+// 1.20.1	2026-05-23T15:07:37.5531611	TFMG's Recipes
 9195362b7e061e947c4de657ce3b7c49c1e271d1 data/tfmg/advancements/recipes/misc/blasting/lead_ingot_blasting.json
 14f26d532b7adf630370bfc99bf32a0ce4dc7e77 data/tfmg/advancements/recipes/misc/blasting/lead_ingot_from_crushed_blasting.json
 c918937eba17a031abe7355ef190d20cc1e41f3c data/tfmg/advancements/recipes/misc/blasting/lithium_ingot_blasting.json
@@ -597,7 +597,6 @@ cc79bc426111d6f2aa90b5aff3b3ee4c94338e51 data/tfmg/recipes/smelting/lithium_ingo
 502ce34e16301ccc8b45f8545b2984c6adfc9b0b data/tfmg/recipes/smelting/nickel_ingot_blasting.json
 5f3d7cd54c775d64eab2341702edc4498bb94b60 data/tfmg/recipes/smelting/nickel_ingot_from_crushed_blasting.json
 85ce7ad0491b53460e0ec02f218d8ffb6d7a7298 data/tfmg/recipes/smelting/unfinished_insulator.json
-90a58e0d9258bdb86cf87dc5a0c9fbe202b98155 data/tfmg/recipes/vat_machine_recipe/aluminum.json
 8fe808457097d8ffd869542ee03934b585b67593 data/tfmg/recipes/vat_machine_recipe/ammonia_displacement.json
 2c68165453a7a4461154dcef62a27000c773dd9e data/tfmg/recipes/vat_machine_recipe/ammonia_oxidation.json
 2e7fea696a8b3f38cae48c0f0d1448050f5ff455 data/tfmg/recipes/vat_machine_recipe/arc_furnace_steel.json

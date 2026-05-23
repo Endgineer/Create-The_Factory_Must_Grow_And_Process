@@ -132,6 +132,8 @@ import com.drmangotea.tfmg.content.machinery.vat.base.VatItem;
 import com.drmangotea.tfmg.content.machinery.vat.base.VatModel;
 import com.drmangotea.tfmg.content.machinery.vat.electrode_holder.ElectrodeHolderBlock;
 import com.drmangotea.tfmg.content.machinery.vat.industrial_mixer.IndustrialMixerBlock;
+import com.drmangotea.tfmg.registry.TFMGTags.TFMGBlockTags;
+import com.drmangotea.tfmg.registry.TFMGTags.TFMGItemTags;
 import com.simibubi.create.AllTags;
 import com.simibubi.create.api.stress.BlockStressValues;
 import com.simibubi.create.content.contraptions.bearing.StabilizedBearingMovementBehaviour;
@@ -588,6 +590,44 @@ public class TFMGBlocks {
 		    .transform(tagBlockAndItem(Map.of(
 				    Tags.Blocks.ORES, Tags.Items.ORES,
 				    CommonMetal.LEAD.ores.blocks(), CommonMetal.LEAD.ores.items(),
+				    Tags.Blocks.ORES_IN_GROUND_DEEPSLATE, Tags.Items.ORES_IN_GROUND_DEEPSLATE
+		    )))
+            .build()
+            .register();
+
+    public static final BlockEntry<Block> ALUMINUM_ORE = REGISTRATE.block("aluminum_ore", Block::new)
+            .initialProperties(() -> Blocks.COPPER_ORE)
+            .properties(p -> p
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE))
+            .transform(pickaxeOnly())
+            .loot((lt, b) -> lt.add(b,
+                    RegistrateBlockLootTables.createSilkTouchDispatchTable(b,
+                            lt.applyExplosionDecay(b, LootItem.lootTableItem(TFMGItems.RAW_ALUMINUM.get())
+                                    .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))))))
+            .tag(BlockTags.NEEDS_STONE_TOOL)
+		    .transform(tagBlockAndItem(Map.of(
+				    Tags.Blocks.ORES, Tags.Items.ORES,
+				    CommonMetal.ALUMINUM.ores.blocks(), CommonMetal.ALUMINUM.ores.items(),
+				    Tags.Blocks.ORES_IN_GROUND_STONE, Tags.Items.ORES_IN_GROUND_STONE
+		    )))
+            .build()
+            .register();
+
+    public static final BlockEntry<Block> DEEPSLATE_ALUMINUM_ORE = REGISTRATE.block("deepslate_aluminum_ore", Block::new)
+            .initialProperties(() -> Blocks.DEEPSLATE_COPPER_ORE)
+            .properties(p -> p
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE))
+            .transform(pickaxeOnly())
+            .loot((lt, b) -> lt.add(b,
+                    RegistrateBlockLootTables.createSilkTouchDispatchTable(b,
+                            lt.applyExplosionDecay(b, LootItem.lootTableItem(TFMGItems.RAW_ALUMINUM.get())
+                                    .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))))))
+            .tag(BlockTags.NEEDS_STONE_TOOL)
+		    .transform(tagBlockAndItem(Map.of(
+				    Tags.Blocks.ORES, Tags.Items.ORES,
+				    CommonMetal.ALUMINUM.ores.blocks(), CommonMetal.ALUMINUM.ores.items(),
 				    Tags.Blocks.ORES_IN_GROUND_DEEPSLATE, Tags.Items.ORES_IN_GROUND_DEEPSLATE
 		    )))
             .build()

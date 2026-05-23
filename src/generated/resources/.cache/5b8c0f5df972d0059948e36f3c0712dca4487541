@@ -1,10 +1,9 @@
-// 1.20.1	2026-05-21T23:42:26.9950126	TFMG's Processing Recipes
+// 1.20.1	2026-05-23T15:07:37.5506332	TFMG's Processing Recipes
 ae24d73a2ef5b8059806e660641bcb9dff2a15f4 data/tfmg/recipes/coking/charcoal.json
 9000fbf96dc2c2b822aa4e526b1c8686d5413e5a data/tfmg/recipes/coking/coal.json
 2b33a020ed88511979447005053ceea2b3ff3c08 data/tfmg/recipes/compacting/bitumen.json
 6fdc2097dc379dd620ffec21797bbf03f38774fa data/tfmg/recipes/compacting/cast_iron.json
 3e2f2dd950bd134c331a9cbf0a17e82713f11249 data/tfmg/recipes/compacting/cinderflourblock.json
-f8f004cce2acbbf02207433e88df3e1f3d155053 data/tfmg/recipes/crushing/bauxite.json
 6c8b2797938c86e8bf21508db782f19e6fa1c5d2 data/tfmg/recipes/crushing/coal_coke.json
 45266f40ad082ae192242067acdd148fd738bb81 data/tfmg/recipes/crushing/copper_sulfate.json
 0857149111f629739ad9bf9614db4f152901cd52 data/tfmg/recipes/crushing/deepslate_lithium_ore.json

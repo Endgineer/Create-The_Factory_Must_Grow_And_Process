@@ -25,6 +25,7 @@ public class TFMGPlacedFeatures {
             OIL_DEPOSIT = key("oil_deposit"),
             OIL_WELL = key("oil_well"),
             LEAD_ORE = key("lead_ore"),
+            ALUMINUM_ORE = key("aluminum_ore"),
             NICKEL_ORE = key("nickel_ore"),
             LITHIUM_ORE = key("lithium_ore"),
             TFMG_STRIATED_ORES_OVERWORLD = key("tfmg_striated_ores_overworld"),
@@ -42,6 +43,7 @@ public class TFMGPlacedFeatures {
         Holder<ConfiguredFeature<?, ?>> oilWell = featureLookup.getOrThrow(TFMGConfiguredFeatures.OIL_WELL);
 
         Holder<ConfiguredFeature<?, ?>> leadOre = featureLookup.getOrThrow(TFMGConfiguredFeatures.LEAD_ORE);
+        Holder<ConfiguredFeature<?, ?>> aluminumOre = featureLookup.getOrThrow(TFMGConfiguredFeatures.ALUMINUM_ORE);
         Holder<ConfiguredFeature<?, ?>> nickelOre = featureLookup.getOrThrow(TFMGConfiguredFeatures.NICKEL_ORE);
         Holder<ConfiguredFeature<?, ?>> lithiumOre = featureLookup.getOrThrow(TFMGConfiguredFeatures.LITHIUM_ORE);
         Holder<ConfiguredFeature<?, ?>> striatedOresOverworld = featureLookup.getOrThrow(TFMGConfiguredFeatures.TFMG_STRIATED_ORES_OVERWORLD);
@@ -53,6 +55,7 @@ public class TFMGPlacedFeatures {
         register(ctx, OIL_WELL,oilWell,oilPlacement(RarityFilter.onAverageOnceEvery(750)));
 
         register(ctx, LEAD_ORE, leadOre, placement(CountPlacement.of(5), -15, 80));
+        register(ctx, ALUMINUM_ORE, aluminumOre, placement(CountPlacement.of(8), -63, 112));
         register(ctx, NICKEL_ORE, nickelOre, placement(CountPlacement.of(5), -63, 20));
         register(ctx, LITHIUM_ORE, lithiumOre, placement(CountPlacement.of(3), -63, -5));
         register(ctx, TFMG_STRIATED_ORES_OVERWORLD, striatedOresOverworld, placement(RarityFilter.onAverageOnceEvery(18), -30, 70));

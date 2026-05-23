@@ -12,25 +12,6 @@ public class TFMGLayeredPatterns {
 
     public static final NonNullSupplier<LayerPattern>
 
-            BAUXITE = () -> LayerPattern.builder()
-            .layer(l -> l.weight(1)
-                    .passiveBlock())
-            .layer(l -> l.weight(2)
-                    .block(TFMGPaletteStoneTypes.BAUXITE.getBaseBlock())
-                    .size(1, 3))
-            .layer(l -> l.weight(1)
-                    .block(Blocks.SMOOTH_BASALT)
-                    .block(Blocks.GRANITE)
-                    .size(2, 2))
-            .layer(l -> l.weight(1)
-                    .blocks(Blocks.GRANITE, Blocks.SMOOTH_BASALT))
-            .layer(l -> l.weight(1)
-                    .block(AllPaletteStoneTypes.ANDESITE.getBaseBlock()))
-            .build();
-
-
-    public static final NonNullSupplier<LayerPattern>
-
             LIGNITE = () -> LayerPattern.builder()
             .layer(l -> l.weight(1)
                     .passiveBlock())

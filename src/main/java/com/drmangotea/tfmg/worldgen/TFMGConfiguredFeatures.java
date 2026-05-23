@@ -32,6 +32,7 @@ public class TFMGConfiguredFeatures {
             OIL_DEPOSIT = key("oil_deposit"),
             OIL_WELL = key("oil_well"),
             LEAD_ORE = key("lead_ore"),
+            ALUMINUM_ORE = key("aluminum_ore"),
             NICKEL_ORE = key("nickel_ore"),
             LITHIUM_ORE = key("lithium_ore"),
             TFMG_STRIATED_ORES_OVERWORLD = key("tfmg_striated_ores_overworld"),
@@ -54,6 +55,12 @@ public class TFMGConfiguredFeatures {
                 OreConfiguration.target(deepslateOreReplaceables, TFMGBlocks.DEEPSLATE_LEAD_ORE.get()
                         .defaultBlockState())
         );
+        List<OreConfiguration.TargetBlockState> aluminumTargetStates = List.of(
+                OreConfiguration.target(stoneOreReplaceables, TFMGBlocks.ALUMINUM_ORE.get()
+                        .defaultBlockState()),
+                OreConfiguration.target(deepslateOreReplaceables, TFMGBlocks.DEEPSLATE_ALUMINUM_ORE.get()
+                        .defaultBlockState())
+        );
         List<OreConfiguration.TargetBlockState> nickelTargetStates = List.of(
                 OreConfiguration.target(stoneOreReplaceables, TFMGBlocks.NICKEL_ORE.get()
                         .defaultBlockState()),
@@ -72,11 +79,11 @@ public class TFMGConfiguredFeatures {
         register(ctx, OIL_WELL, TFMGFeatures.OIL_WELL.get(),new NoneFeatureConfiguration());
 
         register(ctx, LEAD_ORE, Feature.ORE, new OreConfiguration(leadTargetStates, 12));
+        register(ctx, ALUMINUM_ORE, Feature.ORE, new OreConfiguration(aluminumTargetStates, 12));
         register(ctx, NICKEL_ORE, Feature.ORE, new OreConfiguration(nickelTargetStates, 10));
         register(ctx, LITHIUM_ORE, Feature.ORE, new OreConfiguration(lithiumTargetStates, 7));
 
         List<LayerPattern> overworldLayerPatterns = List.of(
-                TFMGLayeredPatterns.BAUXITE.get(),
                 TFMGLayeredPatterns.GALENA.get(),
                 TFMGLayeredPatterns.LIGNITE.get(),
                 TFMGLayeredPatterns.FIRECLAY.get()
